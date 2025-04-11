@@ -4,7 +4,6 @@ const path = require('path');
 const fs = require('fs'); 
 const router = express.Router();
 const Controller = require("../controllers/propertyController");
-const Property = require('../models/Property'); 
 
 const storage = multer.diskStorage({
     destination:(req,file,cb)=>{
