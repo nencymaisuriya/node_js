@@ -31,7 +31,7 @@ const deleteProperty = async (req, res) => {
         try {
             if (property.image) unlinkSync(property.image);
         } catch (err) {
-            console.warn("Image file not found, skipping deletion."); // Log the warning, but continue execution
+            console.log("Image file not found, skipping deletion."); 
         }
         await Property.findByIdAndDelete(id);
         res.redirect('/');
