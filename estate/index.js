@@ -10,6 +10,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use('/', require("./routes/propertyRoutes"));
 
+
 app.get('/', (req, res) => {
     res.render('index');
 });
