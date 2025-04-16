@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MovieFlix</title>
+  <style>
+    body {
+      background-color: #141414;
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      padding: 20px 40px;
+      background-color: black;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      color: red;
+      text-decoration: none;
+    }
+
+    .banner {
+      background: url('https://cdn.moveek.com/storage/media/cache/large/4d967376700376a0eb428ba76b756796884b04b4.jpg') no-repeat center center/cover;
+      height: 70vh;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 60px;
+      position: relative;
+    }
+
+    .banner::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 1;
+    }
+
+    .banner-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .banner h1 {
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+
+    .banner p {
+      font-size: 18px;
+      width: 50%;
+    }
+
+    .section {
+      padding: 40px 30px 20px;
+    }
+
+    .section h2 {
+      margin-bottom: 15px;
+    }
+
+    .movie-row {
+      display: flex;
+      overflow-x: auto;
+      gap: 15px;
+      padding-bottom: 10px;
+    }
+
+    /* Grid Layout for movie cards */
+    .movie-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 25px;
+      justify-items: center;
+      padding: 20px;
+    }
+
+    .movie-card {
+      background: #222;
+      border-radius: 12px;
+      overflow: hidden;
+      width: 250px; /* Fixed width */
+      height: 400px; /* Fixed height */
+      transition: transform 0.3s ease;
+    }
+
+    .movie-card:hover {
+      transform: scale(1.05);
+    }
+
+    .movie-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .movie-info {
+      padding: 15px;
+    }
+
+    .movie-info h3 {
+      margin-bottom: 10px;
+      font-size: 18px;
+      color: #fff;
+    }
+
+    .movie-info p {
+      margin: 6px 0;
+      color: #bbb;
+      font-size: 14px;
+    }
+
+    .card-buttons {
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center; 
+    }
+
+    .btn {
+      padding: 8px 12px;
+      border: none;
+      border-radius: 6px;
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .edit {
+      background-color: #17a2b8;
+    }
+
+    .delete {
+      background-color: #dc3545;
+    }
+
+    .like-btn {
+      background: none;
+      border: none;
+      font-size: 20px;
+      color: #e25555;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .like-btn:hover {
+      transform: scale(1.2);
+    }
+
+    .add-movie-link {
+      display: inline-block;
+      margin-bottom: 20px;
+      background-color: #ff2f00;
+      color: white;
+      padding: 10px 18px;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    .add-movie-link:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="/" class="logo">NETFLIX</a>
+  <a href="/addmovie" class="add-movie-link">Add New Movie</a>
+</header>
+
+<!-- Banner -->
+<div class="banner">
+  <div class="banner-content">
+    <h1>Stranger Things</h1>
+    <p>An intense sci-fi drama following a group of kids uncovering secrets in Hawkins, Indiana.</p>
+  </div>
+</div>
+
+<!-- Dynamic Movie Sections -->
+<div class="section">
+  <h2>Trending Now</h2>
+  <div class="movie-row">
+    <!-- Static Movie Cards -->
+    <div class="movie-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzCPPJ7dOd7M8GOzRNVsa2F64VCHa-feounmtZjDoer0EdCBwIRRo_KfkqPy6D2rMIhS8&usqp=CAU" alt="Movie image" />
+      <div class="movie-info">
+        <h3>The Matrix</h3>
+        <p><strong>Director:</strong> Lana Wachowski, Lilly Wachowski</p>
+        <p><strong>Year:</strong> 1999</p>
+        <p><strong>Rating:</strong> 8.7/10</p>
+      </div>
+    </div>
+  
+  <div class="movie-row">
+    <div class="movie-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIimJe-SRhe-aqqsNwdJmJDWWcfLVWd8joXA&s" alt="Movie image" />
+      <div class="movie-info">
+        <h3>Inception</h3>
+        <p><strong>Director:</strong> Christopher Nolan</p>
+        <p><strong>Year:</strong> 2010</p>
+        <p><strong>Rating:</strong> 8.8/10</p>
+      </div>
+    </div>
+   
+    <!-- Static Movie Card 2 -->
+    <div class="movie-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTE3Ghfv31mELgpLmPnkAtEHZ_xt-1zds-99A&s" alt="Movie image" />
+      <div class="movie-info">
+        <h3>Interstellar</h3>
+        <p><strong>Director:</strong> Christopher Nolan</p>
+        <p><strong>Year:</strong> 2014</p>
+        <p><strong>Rating:</strong> 8.6/10</p>
+      </div>
+    </div>
+
+    <!-- Static Movie Card 3 -->
+    <div class="movie-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxlBAgmf6OsErYKKuNVuQxHf6nPs_-zy2DrQ&s" alt="Movie image" />
+      <div class="movie-info">
+        <h3>The Dark Knight</h3>
+        <p><strong>Director:</strong> Christopher Nolan</p>
+        <p><strong>Year:</strong> 2008</p>
+        <p><strong>Rating:</strong> 9.0/10</p>
+      </div>
+    </div>
+
+    <!-- Static Movie Card 4 -->
+    <div class="movie-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFb2kFxWRooZnlpUZ7iYTlQOLtSF4LxPysBQ&s" alt="Movie image" />
+      <div class="movie-info">
+        <h3>Avengers: Endgame</h3>
+        <p><strong>Director:</strong> Anthony Russo, Joe Russo</p>
+        <p><strong>Year:</strong> 2019</p>
+        <p><strong>Rating:</strong> 8.4/10</p>
+      </div>
+    </div>
+
+    <!-- Static Movie Card 5 -->
+    <div class="movie-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCOP0qpNzn6vM5UIbjW1ctVPS4P05ExwHGSQ&s" alt="Movie image" />
+      <div class="movie-info">
+        <h3>Gladiator</h3>
+        <p><strong>Director:</strong> Ridley Scott</p>
+        <p><strong>Year:</strong> 2000</p>
+        <p><strong>Rating:</strong> 8.5/10</p>
+      </div>
+    </div>
+</div>
+
+
+  </div>
+</div>
+
+<!-- Dynamic Movie Cards (using EJS templating) -->
+<div class="movie-grid">
+  <% movies.forEach(movie => { %>
+    <div class="movie-card">
+      <a href="/indetails">
+        <img src="/<%= movie.image %>" alt="Movie image" />
+      </a>
+      <div class="movie-info">
+        <h3><%= movie.title %></h3>
+        <p><strong>Director:</strong> <%= movie.director %></p>
+        <p><strong>Year:</strong> <%= movie.year %></p>
+        <p><strong>Type:</strong> <%= movie.type %></p>
+
+        <div class="card-buttons">
+          <a href="/edit_movie/<%= movie._id %>" class="btn edit">Edit</a>
+          <a href="/delete/<%= movie._id %>" class="btn delete">Delete</a>
+          <button class="like-btn" title="Like">&#10084;</button>
+        </div>
+      </div>
+    </div>
+  <% }) %>
+</div>
+
+</body>
+</html>
