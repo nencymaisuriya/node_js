@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>MovieFlix</title>
+  <title>MovieNetflix</title>
   <style>
     body {
       background-color: #141414;
@@ -26,41 +26,36 @@
       color: red;
       text-decoration: none;
     }
-
+    
     .banner {
-      background: url('https://cdn.moveek.com/storage/media/cache/large/4d967376700376a0eb428ba76b756796884b04b4.jpg') no-repeat center center/cover;
-      height: 70vh;
-      color: white;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 60px;
       position: relative;
+      width: 100%;
+      height: 90vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
     }
 
-    .banner::after {
-      content: '';
+    .banner-img {
       position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.6);
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.4);
       z-index: 1;
     }
 
     .banner-content {
       position: relative;
       z-index: 2;
+      padding: 0 60px;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
     }
 
-    .banner h1 {
-      font-size: 48px;
-      margin-bottom: 10px;
-    }
-
-    .banner p {
-      font-size: 18px;
-      width: 50%;
-    }
 
     .section {
       padding: 40px 30px 20px;
@@ -77,7 +72,6 @@
       padding-bottom: 10px;
     }
 
-    /* Grid Layout for movie cards */
     .movie-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -90,8 +84,8 @@
       background: #222;
       border-radius: 12px;
       overflow: hidden;
-      width: 250px; /* Fixed width */
-      height: 400px; /* Fixed height */
+      width: 250px; 
+      height: 400px;
       transition: transform 0.3s ease;
     }
 
@@ -182,30 +176,29 @@
   <a href="/addmovie" class="add-movie-link">Add New Movie</a>
 </header>
 
-<!-- Banner -->
-<div class="banner">
+<section class="banner">
+  <img src="https://wallpapertag.com/wallpaper/full/d/f/6/415303-download-free-stranger-things-wallpapers-1920x1080-pictures.jpg" alt="Banner Image" class="banner-img" />
   <div class="banner-content">
-    <h1>Stranger Things</h1>
-    <p>An intense sci-fi drama following a group of kids uncovering secrets in Hawkins, Indiana.</p>
-  </div>
-</div>
+    <h1 style="font-size: 60px; font-weight: 900; margin: 0 0 20px;">Stranger Things</h1>
+    <p style="max-width: 550px; font-size: 20px; line-height: 1.6; margin: 0;">
+      In the small town of Hawkins, Indiana, a young boy disappears under mysterious circumstances, uncovering a secret world of supernatural events and government experiments.
+    </p>
+  </div>  
+</section>
 
-<!-- Dynamic Movie Sections -->
 <div class="section">
   <h2>Trending Now</h2>
   <div class="movie-row">
-    <!-- Static Movie Cards -->
     <div class="movie-card">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzCPPJ7dOd7M8GOzRNVsa2F64VCHa-feounmtZjDoer0EdCBwIRRo_KfkqPy6D2rMIhS8&usqp=CAU" alt="Movie image" />
       <div class="movie-info">
         <h3>The Matrix</h3>
-        <p><strong>Director:</strong> Lana Wachowski, Lilly Wachowski</p>
+        <p><strong>Director:</strong> Lana Wachowski</p>
         <p><strong>Year:</strong> 1999</p>
         <p><strong>Rating:</strong> 8.7/10</p>
       </div>
     </div>
-  
-  <div class="movie-row">
+
     <div class="movie-card">
       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIimJe-SRhe-aqqsNwdJmJDWWcfLVWd8joXA&s" alt="Movie image" />
       <div class="movie-info">
@@ -216,7 +209,7 @@
       </div>
     </div>
    
-    <!-- Static Movie Card 2 -->
+
     <div class="movie-card">
       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTE3Ghfv31mELgpLmPnkAtEHZ_xt-1zds-99A&s" alt="Movie image" />
       <div class="movie-info">
@@ -227,7 +220,7 @@
       </div>
     </div>
 
-    <!-- Static Movie Card 3 -->
+ 
     <div class="movie-card">
       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxlBAgmf6OsErYKKuNVuQxHf6nPs_-zy2DrQ&s" alt="Movie image" />
       <div class="movie-info">
@@ -238,18 +231,16 @@
       </div>
     </div>
 
-    <!-- Static Movie Card 4 -->
     <div class="movie-card">
       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFb2kFxWRooZnlpUZ7iYTlQOLtSF4LxPysBQ&s" alt="Movie image" />
       <div class="movie-info">
         <h3>Avengers: Endgame</h3>
-        <p><strong>Director:</strong> Anthony Russo, Joe Russo</p>
+        <p><strong>Director:</strong> Anthony Russo</p>
         <p><strong>Year:</strong> 2019</p>
         <p><strong>Rating:</strong> 8.4/10</p>
       </div>
     </div>
 
-    <!-- Static Movie Card 5 -->
     <div class="movie-card">
       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCOP0qpNzn6vM5UIbjW1ctVPS4P05ExwHGSQ&s" alt="Movie image" />
       <div class="movie-info">
@@ -259,17 +250,15 @@
         <p><strong>Rating:</strong> 8.5/10</p>
       </div>
     </div>
-</div>
-
-
+    
   </div>
 </div>
 
-<!-- Dynamic Movie Cards (using EJS templating) -->
+
 <div class="movie-grid">
   <% movies.forEach(movie => { %>
     <div class="movie-card">
-      <a href="/indetails">
+      <a href="/indetails/<%= movie.id%>">
         <img src="/<%= movie.image %>" alt="Movie image" />
       </a>
       <div class="movie-info">
@@ -277,7 +266,6 @@
         <p><strong>Director:</strong> <%= movie.director %></p>
         <p><strong>Year:</strong> <%= movie.year %></p>
         <p><strong>Type:</strong> <%= movie.type %></p>
-
         <div class="card-buttons">
           <a href="/edit_movie/<%= movie._id %>" class="btn edit">Edit</a>
           <a href="/delete/<%= movie._id %>" class="btn delete">Delete</a>

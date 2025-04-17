@@ -9,7 +9,7 @@ const moviepage = async (req, res) => {
     res.render("index", { movies: allMovies });
   } catch (err) {
     console.error("Error fetching movies:", err);
-    res.status(500).send("Server error");
+    res.send("Server error");
   }
 };
 
@@ -28,12 +28,11 @@ const insert_movie = async (req, res) => {
     res.redirect('/');
   } catch (err) {
     console.error("Error inserting movie:", err);
-    res.status(500).send("Insert error");
+    res.send("Insert error");
   }
 };
 
-
-// UPDATE 
+// update
 const updatemovie = async (req, res) => {
   try {
     const movie = await movies.findById(req.params.id);
@@ -44,13 +43,14 @@ const updatemovie = async (req, res) => {
     res.send('Server Error');
   }
 };
-//edit movie
+
+// edit 
 const edit_movie = async (req, res) => {
   try {
     const { id } = req.params;
     const movie = await movies.findById(id);
 
-    if (!movie) return res.status(404).send('Movie not found');
+    if (!movie) return res.send('Movie not found');
 
     if (req.file) {
       if (movie.image) fs.unlinkSync(movie.image); 
@@ -63,18 +63,18 @@ const edit_movie = async (req, res) => {
     res.redirect('/');
   } catch (err) {
     console.error('Edit Movie Error:', err);
-    res.status(500).send('Server Error');
+    res.send('Server Error');
   }
 };
 
 
-// DELETE 
+// delete
 const delete_movie = async (req, res) => {
   try {
     const movie = await movies.findById(req.params.id);
 
     if (!movie) {
-      return res.status(404).send("Movie not found");
+      return res.send("Movie not found");
     }
     if (movie.image && fs.existsSync(movie.image)) {
       fs.unlinkSync(movie.image);
@@ -84,13 +84,14 @@ const delete_movie = async (req, res) => {
     res.redirect('/');
   } catch (error) {
     console.error("Error deleting movie:", error);
-    res.status(500).send("Delete error");
+    res.send("Delete error");
   }
 };
 
-//indetails
-const in_details =(req,res) =>{
-  res.render('indetails');
+// indetails
+const in_details = async (req,res) =>{
+  const movie = await movies.findById(req.params.id);
+  res.render('indetails',{movie});
   
 }
 module.exports = {
