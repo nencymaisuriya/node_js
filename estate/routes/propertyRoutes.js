@@ -5,6 +5,7 @@ const fs = require('fs');
 const router = express.Router();
 const Controller = require("../controllers/propertyController");
 
+
 const storage = multer.diskStorage({
     destination:(req,file,cb)=>{
         cb(null ,  ("./uploads/") );
@@ -17,12 +18,13 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 router.get('/', Controller.propertyPage);
-router.post("/add-property", upload.single('image'), Controller.addProperty);
-router.post('/delete/:id', Controller.deleteProperty);
+router.get('/add-property', Controller.AddProperty);
+router.post('/insert-property', upload.single('image'), Controller.insertProperty);
+router.get('/delete/:id', Controller.deleteProperty);
 router.get('/update/:id', Controller.updateProperty);
 router.post('/edit/:id',  upload.single('image'),Controller.editProperty);
 
 module.exports = router;
 
  
-
+ 

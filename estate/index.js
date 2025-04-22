@@ -11,12 +11,7 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use('/', require("./routes/propertyRoutes"));
 
 
-app.get('/', (req, res) => {
-    res.render('index');
-});
-app.get('/add-property', (req, res) => {
-    res.render('addProperty');  
-});
+
 app.listen(port, () => {
     console.log('server started');
 });
