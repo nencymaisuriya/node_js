@@ -17,7 +17,10 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 router.get('/',libaraycontroller.libpage);
-router.get('',libaraycontroller.addlib);
+router.get('/add',libaraycontroller.addlib);
+router.post('/insert', upload.single('image'), libaraycontroller.insertlib);
+router.get('/delete/:id', libaraycontroller.deletelib);
 
+module.exports = router;
 
 
