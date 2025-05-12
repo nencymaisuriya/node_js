@@ -1,0 +1,66 @@
+<%- include('header') %>
+
+<div class="page-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+
+                    <div class="card-body d-flex justify-content-between align-items-center">
+                        <h5 class="card-title mb-0">Admin List</h5>
+                        <a href="/addAdmin" class="btn btn-primary">Add New Admin</a>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="table table-bordered align-middle text-center">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>#</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Email</th>
+                                    <th>Gender</th>
+                                    <th>Hobby</th>
+                                    <th>City</th>
+                                    <th>Description</th>
+                                    <th>Image</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% if (records.length > 0) { %>
+                                    <% records.forEach((data, index) => { %>
+                                        <tr>
+                                            <td><%= index + 1 %></td>
+                                            <td><%= data.fname %></td>
+                                            <td><%= data.lname %></td>
+                                            <td><%= data.email %></td>
+                                            <td><%= data.gender %></td>
+                                            <td><%= Array.isArray(data.hobby) ? data.hobby.join(", ") : data.hobby %></td>
+                                            <td><%= data.city %></td>
+                                            <td><%= data.desc %></td>
+                                            <td>
+                                               <img src="<%= data.image %>" class="img-thumbnail" style="width: 70px; height: 70px; object-fit: cover;" alt="Admin Image" />
+                                            </td>
+                                            
+                                            <td>
+                                                <a href="/updateAdmin/?id=<%= data._id %>" class="btn btn-sm btn-warning mb-1">Update</a>
+                                                <a href="/deleteAdmin/<%= data._id %>" class="btn btn-sm btn-danger">Delete</a>
+                                            </td>
+                                        </tr>
+                                    <% }) %>
+                                <% } else { %>
+                                    <tr>
+                                        <td colspan="10" class="text-center">No admin records found.</td>
+                                    </tr>
+                                <% } %>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include('footer') %>
