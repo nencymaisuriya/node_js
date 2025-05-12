@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><%= movie.title %> indetails</title>
+  <style>
+    body {
+      background-color: #141414;
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: black;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      color: red;
+      text-decoration: none;
+    }
+
+    .back-btn {
+      background-color: #e50914;
+      color: white;
+      padding: 10px 18px;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      padding: 40px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .image {
+      flex: 1;
+      max-width: 400px;
+    }
+
+    .image img {
+      width: 100%;
+      border-radius: 12px;
+      border: 2px solid #e50914;
+    }
+
+    .details {
+      flex: 2;
+      max-width: 600px;
+    }
+
+    .details h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+
+    .details p {
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+      line-height: 1.6;
+    }
+
+    .label {
+      color: #bbb;
+      font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .details h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="/" class="logo">NETFLIX</a>
+  <a href="/" class="back-btn">Back to Home</a>
+</header>
+
+<div class="container">
+  <div class="image">
+    <img src="/<%= movie.image %>" alt="<%= movie.title %> Image" />
+  </div>
+
+  <div class="details">
+    <h1><%= movie.title %></h1>
+    <p><span class="label">Director:</span> <%= movie.director %></p>
+    <p><span class="label">Year:</span> <%= movie.year %></p>
+    <p><span class="label">Type:</span> <%= movie.type %></p>
+  </div>
+</div>
+
+</body>
+</html>

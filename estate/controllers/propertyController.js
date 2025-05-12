@@ -2,14 +2,21 @@ const { unlinkSync } = require('fs');
 const path = require('path');
 const Property = require('../models/Property');
 
+//page
 const propertyPage = async (req, res) => {
         const properties = await Property.find(); 
         res.render("index", { properties }); 
 };
 
+
 //add
-const addProperty = async (req, res) => {
-      
+const AddProperty = (req, res) => {
+    res.render('addProperty');
+};
+
+
+//insert
+const insertProperty = async (req, res) => {
             console.log("Insert is loading...");
             console.log("Data Received:", req.body);
             console.log("Uploaded File:", req.file);
@@ -27,11 +34,10 @@ const addProperty = async (req, res) => {
 const deleteProperty = async (req, res) => {
         const { id } = req.params;
         const property = await Property.findById(id);
-   // Handle potential file deletion error
         try {
             if (property.image) unlinkSync(property.image);
         } catch (err) {
-            console.warn("Image file not found, skipping deletion."); // Log the warning, but continue execution
+            console.log("Image file not found, skipping deletion."); 
         }
         await Property.findByIdAndDelete(id);
         res.redirect('/');
@@ -40,17 +46,16 @@ const deleteProperty = async (req, res) => {
 
 
 //update 
-
 const updateProperty = async (req, res) => {
    
         const id = req.params.id;
-        // console.log("Update succ", id);
 
         const property = await Property.findById(id); 
 
         res.render('updateProperty', { property }); 
     
 };
+
 //edit
 const editProperty = async (req, res) => {
     const id = req.params.id;
@@ -74,7 +79,8 @@ const editProperty = async (req, res) => {
 
 module.exports = {
     propertyPage,
-    addProperty,
+    AddProperty,
+    insertProperty,
     deleteProperty,
     updateProperty,
     editProperty

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Update Movie</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #141414;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 600px;
+      width: 90%;
+      padding: 20px;
+    }
+
+    .form-container {
+      background: #1c1c1c;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+      border: 1px solid #333;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .form-label {
+      font-weight: 500;
+      color: #ccc;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .form-control, .form-select {
+      border-radius: 8px;
+      border: none;
+      padding: 12px;
+      font-size: 16px;
+      width: 100%;
+      margin-bottom: 20px;
+      background-color: #333;
+      color: #fff;
+      outline: none;
+    }
+
+    .form-control:focus, .form-select:focus {
+      box-shadow: 0 0 8px rgba(229, 9, 20, 0.5);
+      border: 1px solid #e50914;
+    }
+
+    .image-preview {
+      margin: 15px auto;
+      border-radius: 10px;
+      width: 100px;
+      height: 100;  
+      border: 2px solid #555;
+    }
+
+    .btn-primary {
+      background-color: #e50914;
+      border: none;
+      padding: 14px;
+      font-size: 18px;
+      border-radius: 8px;
+      color: white;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.3s ease-in-out;
+      width: 100%;
+    }
+
+    .btn-primary:hover {
+      background-color: #b00610;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="form-container">
+      <form action="/edit_movie/<%= movie._id %>" method="post" enctype="multipart/form-data">
+        <h2>Update Movie</h2>
+
+        <label for="title" class="form-label">Title</label>
+        <input type="text" class="form-control" name="title" value="<%= movie.title %>" required>
+
+        <label for="director" class="form-label">Director</label>
+        <input type="text" class="form-control" name="director" value="<%= movie.director %>" required>
+
+        <label for="Year" class="form-label">Year</label>
+        <input type="number" class="form-control" name="Year" value="<%= movie.year %>" required>
+
+        <label class="form-label">Movie Type</label>
+        <select class="form-select" name="type" required>
+          <option value="">Select type</option>
+          <% let type = ["Action", "Drama", "Comedy", "Horror", "Sci-Fi", "Romance"] %>
+          <% type.forEach((type) => { %>
+            <option value="<%= type %>" <%= movie.type === type ? 'selected' : '' %>>
+              <%= type %>
+            </option>
+          <% }); %>
+        </select>
+
+        <label for="image" class="form-label">Upload New Image</label>
+        <input type="file" class="form-control" name="image">
+
+        <label class="form-label">Current Image:</label>
+        <img src="/<%= movie.image %>" class="image-preview" alt="Current movie image">
+
+        <button type="submit" class="btn-primary">Update Movie</button>
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>
