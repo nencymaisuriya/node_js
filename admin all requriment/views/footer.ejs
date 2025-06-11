@@ -1,0 +1,39 @@
+<div class="py-6 px-6 text-center">
+  <p class="mb-0 fs-4">Design and Developed by Admin </p>
+</div>
+</div>
+</div>
+</div>
+<script src="../../assets/libs/jquery/dist/jquery.min.js"></script>
+<script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/sidebarmenu.js"></script>
+<script src="../assets/js/app.min.js"></script>
+<script src="../assets/libs/apexcharts/dist/apexcharts.min.js"></script>
+<script src="../assets/libs/simplebar/dist/simplebar.js"></script>
+<!-- Include SweetAlert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="../assets/js/dashboard.js"></script>
+<% if (success && success.length > 0) { %>
+  <script>
+    Swal.fire({
+      icon: 'success',
+      title: 'Success',
+      text: '<%= success[0] %>'
+    });
+  </script>
+<% } %>
+
+<% if (error && error.length > 0) { %>
+  <script>
+    Swal.fire({
+      icon: 'error',
+      title: 'Error',
+      text: '<%= error[0] %>'
+    });
+  </script>
+<% } %>
+
+
+</body>
+
+</html>
