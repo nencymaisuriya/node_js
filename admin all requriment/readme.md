@@ -53,18 +53,21 @@ A fully featured **Admin Dashboard** built using **Node.js**, **Express**, **Mon
 #### 🔐 Login Page
 ![login](https://github.com/user-attachments/assets/1c4f019c-1523-4250-a2d2-7be9547588ce)
 
-
 #### 🧑‍💼 Admin Dashboard
 
 
-#### ➕ Add Product
-![Add Product](./screenshots/add-product.png)
+#### ➕ Add Admin
+![admin](https://github.com/user-attachments/assets/9e8c9a69-ccd8-4872-8ea9-6743ffd1317e)
 
-#### 📋 View Products
-![View Products](./screenshots/view-products.png)
 
-#### ✏️ Edit Product
-![Edit Product](./screenshots/edit-product.png)
+#### 📋 View Admin
+![viewadmin](https://github.com/user-attachments/assets/7f915af7-b945-489d-a16f-6d669204857c)
+
+#### ➕ Add category
+![category](https://github.com/user-attachments/assets/3b21e3cc-d1f1-470c-b80d-77ffffd608c9)
+
+
+
 
 ---
 
