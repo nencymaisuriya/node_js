@@ -51,7 +51,7 @@ A fully featured **Admin Dashboard** built using **Node.js**, **Express**, **Mon
 > Make sure you place all these images inside the `/screenshots` folder.
 
 #### 🔐 Login Page
-![Login](./screenshots/login.png)
+![Login]("C:\Users\nency\Desktop\node js prg\node\admin all requriment\screenshot\login.png")
 
 #### 🧑‍💼 Admin Dashboard
 ![Dashboard](./screenshots/dashboard.png)
